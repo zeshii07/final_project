@@ -1,0 +1,354 @@
+ /* src/styles/Theme.css - Soft Light Theme */
+
+/* Global CSS Variables for the Theme */
+:root {
+    /* Backgrounds - Lighter, softer tones */
+    --global-primary-bg-start: #f0f2f5; /* Very light gray */
+    --global-primary-bg-mid: #e8ebf0;   /* Slightly darker light gray */
+    --global-primary-bg-end: #dfe3e8;   /* Even darker light gray */
+    --global-secondary-bg: #ffffff;     /* Pure white for sections/cards */
+    --global-tertiary-bg: #f8f8fa; /* A very subtle off-white for elements needing slight differentiation */
+
+    /* Text Colors - Darker for readability on light backgrounds */
+    --global-text-dark: #333333;        /* Main dark text color */
+    --global-text-muted: #6c757d;       /* Standard muted gray */
+    --global-text-emphasis: #495057;    /* Slightly darker text for labels etc. */
+    --text-color-primary: #333333; /* Added for general text */
+
+    /* Accent Color (Teal/Aqua) - Adjusted for contrast on light backgrounds */
+    --global-accent-color: #008c73;      /* A slightly darker teal for better contrast */
+    --global-accent-gradient-start: #00a377; /* Start a bit darker */
+    --global-accent-gradient-end: #00cc99;   /* End a bit brighter */
+    --global-accent-hover: #007a66;      /* Darker hover for accent */
+
+    /* Card/Form Specifics */
+    --card-bg: #ffffff; /* White background for cards */
+    --card-border-color: #e0e0e0; /* Light gray border for cards */
+
+    /* Input Specifics */
+    --input-group-bg: #e9ecef; /* Light gray for input group addon */
+    --input-border: #ced4da;   /* Standard light gray border */
+    --input-bg: #ffffff;       /* White input background */
+    --input-text-color: #495057; /* Dark text for inputs */
+    --input-placeholder-color: #adb5bd; /* Lighter placeholder */
+}
+
+/* Global Body and Root Styling */
+body, #root {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Main gradient background */
+    background: linear-gradient(135deg, var(--global-primary-bg-start) 0%, var(--global-primary-bg-mid) 50%, var(--global-primary-bg-end) 100%);
+    color: var(--global-text-dark); /* Default text color for the whole app */
+    overflow-x: hidden;
+}
+
+/* --- General Component Styles --- */
+
+/* Cards (for products, summary, etc.) */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow for light theme */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    color: var(--global-text-dark); /* Default text for card content */
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific text color overrides for Bootstrap classes */
+.text-success {
+    color: var(--global-accent-color) !important;
+}
+.text-white, .text-light {
+    color: var(--global-text-dark) !important; /* text-light/white should now be dark on light background */
+}
+.text-muted {
+    color: var(--global-text-muted) !important;
+}
+.text-dark { /* If you explicitly need a darker black (e.g., on a light accent) */
+    color: #212529 !important; /* Bootstrap's default dark */
+}
+.text-app-accent { /* Keep accent color for specific elements */
+    color: var(--global-accent-color) !important;
+}
+.text-light-emphasis { /* For form labels, now a slightly darker gray */
+    color: var(--global-text-emphasis) !important;
+}
+
+
+/* Backgrounds */
+.bg-dark { /* Ensure navbar is dark - can remain dark for contrast */
+    background-color: #343a40 !important; /* A standard dark gray */
+    color: #f8f9fa !important; /* Keep text light on dark navbar */
+}
+.bg-light { /* For sections that need to be lighter within the theme */
+    background-color: var(--global-secondary-bg) !important;
+}
+.bg-secondary-theme { /* For elements like the online payment placeholder box */
+    background-color: var(--global-tertiary-bg) !important;
+}
+.bg-app-accent-gradient {
+    background: linear-gradient(45deg, var(--global-accent-gradient-start), var(--global-accent-gradient-end)) !important;
+}
+
+
+/* Alerts */
+.alert-success {
+    background-color: rgba(0, 140, 115, 0.1); /* Light transparent accent */
+    color: var(--global-text-dark);
+    border-color: var(--global-accent-color);
+}
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1); /* Light transparent danger */
+    color: var(--global-text-dark);
+    border-color: #dc3545;
+}
+.alert-info {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: var(--global-text-dark);
+    border-color: #17a2b8;
+}
+.alert-warning { /* Ensure text is dark on Bootstrap default warning */
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--global-text-dark); /* Dark text on warning */
+    border-color: #ffc107;
+}
+
+
+/* Buttons */
+.btn-outline-success {
+    color: var(--global-accent-color) !important;
+    border-color: var(--global-accent-color) !important;
+}
+.btn-outline-success:hover {
+    background-color: var(--global-accent-color) !important;
+    color: #fff !important;
+}
+.btn-success {
+    background-color: var(--global-accent-color) !important;
+    border-color: var(--global-accent-color) !important;
+    color: #fff !important; /* Keep white text for solid success button */
+}
+.btn-success:hover {
+    background-color: var(--global-accent-hover) !important;
+    border-color: var(--global-accent-hover) !important;
+}
+.btn-outline-light { /* These will now appear dark text on light border */
+    color: var(--global-text-dark) !important;
+    border-color: var(--global-text-dark) !important;
+}
+.btn-outline-light:hover {
+    background-color: var(--global-text-dark) !important;
+    color: var(--global-primary-bg-start) !important; /* Light background on hover */
+}
+.btn-outline-danger {
+    color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+.btn-outline-danger:hover {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+
+/* Custom Button Styles (for general accent buttons like "Add to Cart") */
+.btn-app-accent-gradient {
+    background: linear-gradient(45deg, var(--global-accent-gradient-start), var(--global-accent-gradient-end));
+    border: none;
+    transition: all 0.3s ease;
+    color: #fff; /* Keep white text for vibrant gradient buttons */
+}
+.btn-app-accent-gradient:hover {
+    background: linear-gradient(45deg, var(--global-accent-gradient-end), var(--global-accent-gradient-start));
+    box-shadow: 0 5px 15px rgba(0, 140, 115, 0.4); /* Accent color for shadow */
+    transform: translateY(-2px);
+}
+.btn-app-accent-gradient:active {
+    background: linear-gradient(45deg, var(--global-accent-gradient-start), var(--global-accent-gradient-end));
+    transform: translateY(0);
+    box-shadow: none;
+}
+.btn-app-accent-gradient:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--global-accent-gradient-start);
+}
+
+
+/* Links */
+a.text-app-accent {
+    color: var(--global-accent-color) !important;
+}
+a.text-app-accent:hover {
+    color: var(--global-accent-hover) !important;
+    text-decoration: underline !important;
+}
+a.text-app-link-light { /* For general links that should be dark */
+    color: var(--global-text-emphasis) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a.text-app-link-light:hover {
+    color: var(--global-accent-color) !important;
+}
+
+
+/* --- Auth Form Specific Styles --- */
+.auth-page-container {
+    background: linear-gradient(135deg, var(--global-primary-bg-start) 0%, var(--global-primary-bg-mid) 50%, var(--global-primary-bg-end) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+.login-card {
+    max-width: 500px;
+    width: 90%;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05); /* Lighter shadows */
+    border: 1px solid var(--card-border-color);
+    backdrop-filter: blur(3px); /* Slightly less blur */
+}
+.card-title.text-accent-color {
+    color: var(--global-accent-color) !important;
+}
+.text-form-light {
+    color: var(--global-text-dark) !important; /* Now dark text for forms */
+}
+.text-form-emphasis {
+    color: var(--global-text-emphasis) !important;
+}
+/* Input Group Styling */
+.modern-input-group .input-group-text {
+    background-color: var(--input-group-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-text-color);
+    border-right: none;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+/* Input Field Styling */
+.modern-form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-text-color);
+    padding: 0.75rem 1rem;
+    border-left: none;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    transition: all 0.3s ease-in-out;
+}
+.modern-form-control:focus {
+    background-color: var(--input-group-bg);
+    border-color: var(--global-accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 140, 115, 0.2); /* Softer shadow */
+    color: var(--input-text-color);
+}
+/* Placeholder color */
+.modern-form-control::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 1;
+}
+/* Auth Button Styles (can reuse btn-app-accent-gradient) */
+.btn-auth-accent-gradient {
+    background: linear-gradient(45deg, var(--global-accent-gradient-start), var(--global-accent-gradient-end));
+    border: none;
+    transition: all 0.3s ease;
+    color: #fff; /* Keep white text */
+}
+.btn-auth-accent-gradient:hover {
+    background: linear-gradient(45deg, var(--global-accent-gradient-end), var(--global-accent-gradient-start));
+    box-shadow: 0 5px 15px rgba(0, 140, 115, 0.4);
+    transform: translateY(-2px);
+}
+.btn-auth-accent-gradient:active {
+    background: linear-gradient(45deg, var(--global-accent-gradient-start), var(--global-accent-gradient-end));
+    transform: translateY(0);
+    box-shadow: none;
+}
+.btn-auth-accent-gradient:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--global-accent-gradient-start);
+}
+/* Link Hover Effect */
+a.text-form-accent {
+    color: var(--global-accent-color) !important;
+}
+a.text-form-accent:hover {
+    color: var(--global-accent-hover) !important;
+    text-decoration: underline !important;
+}
+a.text-form-link-light {
+    color: var(--global-text-emphasis) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a.text-form-link-light:hover {
+    color: var(--global-accent-color) !important;
+}
+/* Styling for the eye toggler button */
+.password-toggle-button {
+    background-color: var(--input-group-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-text-color); /* Now dark text on light background */
+    border-left: none;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+.password-toggle-button:hover {
+    color: var(--global-accent-color);
+    background-color: var(--input-group-bg);
+}
+
+
+/* Accordion specific styles for light theme */
+.accordion-item {
+    background-color: var(--global-secondary-bg) !important;
+    border: 1px solid var(--card-border-color) !important;
+    color: var(--global-text-dark) !important; /* Dark text on light background */
+}
+.accordion-button {
+    background-color: var(--global-secondary-bg) !important;
+    color: var(--global-text-dark) !important; /* Dark text on light background */
+    font-weight: bold;
+}
+.accordion-button:not(.collapsed) {
+    color: var(--global-accent-color) !important; /* Accent color when expanded */
+    background-color: var(--global-tertiary-bg) !important; /* Slightly off-white background */
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.accordion-button::after {
+    filter: none; /* Reset filter for light background, let default Bootstrap arrow appear */
+    color: var(--global-text-dark); /* Ensure arrow is dark */
+}
+.accordion-body {
+    background-color: var(--card-bg) !important;
+    color: var(--global-text-muted) !important;
+}
+.list-group-item {
+    background-color: transparent !important;
+    color: var(--global-text-dark) !important; /* Dark text on transparent */
+    border-color: var(--card-border-color) !important;
+}
+/* Ensure borders within list items are visible */
+.list-group-item.d-flex.justify-content-between.align-items-center {
+    border-bottom: 1px dashed var(--card-border-color) !important;
+}

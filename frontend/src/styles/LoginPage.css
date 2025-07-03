@@ -1,0 +1,170 @@
+/* src/components/LoginPage.css */
+
+/* General Page Layout */
+.login-page-container {
+  min-height: 100vh;
+  padding-top: 70px;
+  padding-bottom: 20px;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); /* Soft gradient background */
+  display: flex; /* Ensure it's centered */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+}
+
+/* Login Card Styling */
+.login-card {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 15px; /* More rounded corners */
+  border: none; /* Remove default card border */
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+  overflow: hidden; /* Ensures content respects border-radius */
+  transition: transform 0.3s ease-in-out; /* Add a subtle hover effect */
+}
+
+.login-card:hover {
+  transform: translateY(-5px); /* Lift card slightly on hover */
+}
+
+.card-title {
+  color: #28a745; /* Green branding color */
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* Input Group Styling */
+.modern-input-group {
+  border-radius: 0.5rem; /* Rounded corners for input group */
+  overflow: hidden; /* Ensure border-radius applies to contents */
+  border: 1px solid #ced4da; /* Subtle border */
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.modern-input-group:focus-within {
+  border-color: #28a745; /* Focus color */
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Focus shadow */
+}
+
+.modern-input-group .input-group-text {
+  background-color: #e9ecef; /* Light background for icon */
+  border: none;
+  padding: 0.75rem 1rem;
+  color: #495057;
+  border-right: 1px solid #ced4da; /* Separator for icon */
+}
+
+.modern-form-control {
+  border: none; /* Remove individual input border */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.modern-form-control:focus {
+  box-shadow: none; /* Remove default Bootstrap focus shadow */
+  border-color: transparent; /* Keep border transparent on focus for the input itself */
+}
+
+/* Password Toggle Button */
+.toggle-password-btn {
+  background-color: #e9ecef;
+  border: none;
+  color: #495057;
+  padding: 0.75rem 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-password-btn:hover {
+  background-color: #d8dee4;
+}
+
+/* Error Messages */
+.invalid-feedback {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  color: #dc3545; /* Bootstrap red for errors */
+}
+
+/* Checkbox Styling */
+.modern-checkbox .form-check-input:checked {
+  background-color: #28a745; /* Green for checked state */
+  border-color: #28a745;
+}
+
+.modern-checkbox .form-check-input {
+  border-radius: 0.3rem; /* Slightly rounded checkbox */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Buttons */
+.login-btn {
+  background-color: #28a745; /* Brand green */
+  border-color: #28a745;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.75rem; /* More rounded button */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2); /* Subtle shadow for button */
+}
+
+.login-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  border-color: #218838;
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+.login-btn:active {
+  background-color: #1e7e34 !important;
+  border-color: #1e7e34 !important;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Links */
+.forgot-password-link,
+.signup-link {
+  color: #28a745; /* Green branding color */
+  transition: color 0.2s ease-in-out;
+}
+
+.forgot-password-link:hover,
+.signup-link:hover {
+  color: #218838; /* Darker green on hover */
+  text-decoration: underline !important; /* Ensure underline on hover */
+}
+
+/* Submission Message */
+.alert {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .login-card {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+}
