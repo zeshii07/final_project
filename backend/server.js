@@ -4,7 +4,7 @@ const JWT_SECRET = 'helloeveryone';
 const { Stringifier } = require('csv-stringify'); // For CSV generation
 // const PDFDocument = require('pdfkit'); 
 const PDFDocument = require('pdfkit');
-const stripe = require('stripe')(); 
+const stripe = require('stripe')("sk_test_51RZppTC1uH5TpKdXa5S8nwAPNqEf06KFptWvLhSmdBoE6p75wwPLJyFuhiSjQDhx23R2g3LyKLQRQaLYejXI8M67000S1MgVkO"); 
 // Explicitly tell dotenv where to find the .env file.
 // This assumes .env is in the same directory as server.js (i.e., 'backend' folder).
 // require('dotenv').config({ path: path.resolve(__dirname, '.env') });
